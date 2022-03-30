@@ -17,7 +17,7 @@ import copy
 import pytest
 
 from registry_schemas import validate
-from registry_schemas.example_data import DISSOLUTION, FILING_HEADER
+from registry_schemas.example_data import DISSOLUTION, FILING_HEADER, FIRM_DISSOLUTION
 
 
 def test_minimal_dissolution_schema():
@@ -55,6 +55,21 @@ def test_voluntary_dissolution_schema():
     legal_filing = {'dissolution': copy.deepcopy(DISSOLUTION)}
     legal_filing['dissolution']['dissolutionType'] = 'voluntaryLiquidation'
     legal_filing['dissolution']['parties'][1]['roles'][0]['roleType'] = 'Liquidator'
+
+    is_valid, errors = validate(legal_filing, 'dissolution')
+
+    if errors:
+        for err in errors:
+            print(err.message)
+    print(errors)
+
+    assert is_valid
+
+
+def test_voluntary_firm_dissolution_schema():
+    """Assert that the JSONSchema validator is working."""
+    legal_filing = {'dissolution': copy.deepcopy(FIRM_DISSOLUTION)}
+    legal_filing['dissolution']['dissolutionType'] = 'firm'
 
     is_valid, errors = validate(legal_filing, 'dissolution')
 

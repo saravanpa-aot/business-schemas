@@ -857,6 +857,48 @@ DISSOLUTION = {
     'affidavitFileName': 'affidavit_file.pdf'
 }
 
+FIRM_DISSOLUTION = {
+    'dissolutionDate': '2018-04-08',
+    'dissolutionType': 'firm',
+    'parties': [
+        {
+            'officer': {
+                'firstName': 'Completing',
+                'lastName': 'Party',
+                'middleName': 'P',
+                'email': 'cp@example.com',
+                'organizationName': '',
+                'partyType': 'person'
+            },
+            'mailingAddress': {
+                'streetAddress': 'mailing_address - address line one',
+                'streetAddressAdditional': '',
+                'addressCity': 'mailing_address city',
+                'addressCountry': 'CA',
+                'postalCode': 'H0H0H0',
+                'addressRegion': 'BC',
+                'deliveryInstructions': None
+            },
+            'deliveryAddress': {
+                'streetAddress': 'delivery_address - address line one',
+                'streetAddressAdditional': '',
+                'addressCity': 'delivery_address city',
+                'addressCountry': 'CA',
+                'postalCode': 'H0H0H0',
+                'addressRegion': 'BC',
+                'deliveryInstructions': ''
+            },
+            'roles': [
+                {
+                    'roleType': 'Completing Party',
+                    'appointmentDate': '2021-08-05'
+
+                },
+            ]
+        }
+    ],
+}
+
 SPECIAL_RESOLUTION = {
     'resolution': 'Be in resolved that cookies are delicious.\n\nNom nom nom...',
     'resolutionDate': '2021-01-10',
@@ -2113,6 +2155,7 @@ FILINGS_WITH_TYPES = [
     ('changeOfDirectors', CHANGE_OF_DIRECTORS),
     ('changeOfAddress', CHANGE_OF_ADDRESS),
     ('dissolution', DISSOLUTION),
+    ('firmDissolution', FIRM_DISSOLUTION),
     ('specialResolution', SPECIAL_RESOLUTION),
     ('changeOfName', CHANGE_OF_NAME),
     ('incorporationApplication', STUB_FILING),
